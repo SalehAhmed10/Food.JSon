@@ -27,7 +27,7 @@ function App() {
       const data = await res.json();
 
       Setrecipes(data.hits);
-      console.log(data);
+      // console.log(data);
 
     }
     catch(err) {
