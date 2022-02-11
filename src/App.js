@@ -18,7 +18,7 @@ function App() {
 
   async function getRecipe(){
       
-    console.log(process.env)
+//     console.log(process.env)
 
     try {
       // &&health=${healthLabel} form_healthlabels
@@ -27,7 +27,7 @@ function App() {
       const data = await res.json();
 
       Setrecipes(data.hits);
-      // console.log(data);
+      console.log(data);
 
     }
     catch(err) {
