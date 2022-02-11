@@ -16,7 +16,9 @@ function App() {
     
 
   async function getRecipe(){
-      
+
+    require('dotenv').config()
+    
     console.log(process.env)
 
     try {
