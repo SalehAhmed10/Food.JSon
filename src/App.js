@@ -19,7 +19,7 @@ function App() {
 
     require('dotenv').config()
     
-    console.log(process.env)
+    // console.log(process.env)
 
     try {
       // &&health=${healthLabel} form_healthlabels
