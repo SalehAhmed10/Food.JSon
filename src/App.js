@@ -1,4 +1,3 @@
-
 import {useState} from "react";
 import './App.css';
 import Header from "./Components/Header"
@@ -18,7 +17,7 @@ function App() {
 
   async function getRecipe(){
       
-   console.log(process.env)
+    console.log(process.env)
 
     try {
       // &&health=${healthLabel} form_healthlabels
@@ -27,7 +26,7 @@ function App() {
       const data = await res.json();
 
       Setrecipes(data.hits);
-//       console.log(data);
+      // console.log(data);
 
     }
     catch(err) {
@@ -109,3 +108,4 @@ function App() {
 }
 
 export default App;
+
