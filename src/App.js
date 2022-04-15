@@ -17,9 +17,14 @@ function App() {
 
   async function getRecipe(){
 
-    require('dotenv').config()
+    // require('dotenv').config()
     
-    // console.log(process.env)
+    // // console.log(process.env)
+
+    const YOUR_APP_ID = `ef219d57`;
+  const YOUR_APP_KEY = "072d211a6094e3a183f82dff95605876";
+
+  const url = `https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`;
 
     try {
       // &&health=${healthLabel} form_healthlabels
