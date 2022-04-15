@@ -29,7 +29,7 @@ function App() {
       const result = await fetch(url);
       const data = await result.json();
       Setrecipes(data.hits);
-      console.log(data.hits);
+      // console.log(data.hits);
 
     }
 
