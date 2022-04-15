@@ -1,9 +1,10 @@
+
 import {useState} from "react";
 import './App.css';
 import Header from "./Components/Header"
 import RecipeTile from "./RecipeTile";
 import './RecipeTile'
-import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 
