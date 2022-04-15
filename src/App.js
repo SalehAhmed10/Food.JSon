@@ -14,8 +14,9 @@ function App() {
 
     // const [healthLabel, sethealthLabel] = useState("vegan")
     
-    const YOUR_APP_ID = `ef219d57`;
-    const YOUR_APP_KEY = "072d211a6094e3a183f82dff95605876";
+    const YOUR_APP_ID = `82e453da`;
+    const YOUR_APP_KEY = "3bb5d1a3b992f408b9003effd74c9c22";
+
 
   async function getRecipe(){
 
@@ -27,7 +28,7 @@ function App() {
       // &&health=${healthLabel} form_healthlabels
       // const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_kEY}&health=pork-free&&imageSize=SMALL`);
 
-      const res =await fetch(`https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&health=pork-free&&imageSize=SMALL`)
+      const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`);
       const data = await res.json();
 
       Setrecipes(data.hits);
