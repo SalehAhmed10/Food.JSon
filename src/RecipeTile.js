@@ -2,22 +2,44 @@ import React from 'react'
 import "./RecipeTile.css"
 
 
+
+import { v4 as uuidv4 } from "uuid";
+
+// export default function RecipeTile({ recipe }) {
+//   return (
+//     // recipe["recipe"]["image"].match(/\.(jpeg|jpg|gif|png)$/) != null && (
+//       <div
+//         className="recipeTile"
+//         onClick={() => window.open(recipe["recipe"]["url"])}
+//       >
+//         <img className="recipeTile__img" src={recipe["recipe"]["image"]} />
+//         <p className="recipeTile__name" key={uuidv4()}>
+//           {recipe["recipe"]["label"]}
+//         </p>
+//       </div>
+//     // )
+//   );
+// }
+
+
+
+
 export default function RecipeTile({recipe}) {
     return (
 
-        
-        recipe["recipe"]["image"].match(/\.(jpeg|jpg|png|gif)$/)
-        != null && (
+        // recipe["recipe"]["image"].match(/\.(jpeg|jpg|png|gif)$/)
+        // != null && (
 
     
 <>
-        <div className="col-lg-4 col-md-6 col-sm-6 col-xs-4 mb-5 card_main col-lg-4 align-items-stretch">
+
+<div className="col-lg-4 mb-5 col-md-6 my-3 col-sm-6 card_main align-items-stretch">
         {/* <div className="col-lg-4 col-md-6 my-3 col-sm-6 mb-4 mb-lg-0"> */}
 
             <div className="card shadow-sm border-0 rounded">
 
-                <div className="card-body p-0">
-                    <div className="img-box">
+                <div className="card-body p-0" >
+                    <div className="img-box" key={uuidv4()}>
                     <a href={recipe["recipe"]["url"]} target="_blank" rel="noopener noreferrer"> <img src={recipe["recipe"]["image"]} alt="recipe-img" className="card-img-top img-thumbnail"/> </a>
                     </div>
                     <div className="p-4 recipe_cont">
@@ -37,10 +59,12 @@ export default function RecipeTile({recipe}) {
             </div>
 
         </div>
-        
+      
 </>
+        
+
         )
-    )
+    // )
 }
 
 

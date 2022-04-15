@@ -3,6 +3,7 @@ import './App.css';
 import Header from "./Components/Header"
 import RecipeTile from "./RecipeTile";
 import './RecipeTile'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 
@@ -14,27 +15,23 @@ function App() {
 
     // const [healthLabel, sethealthLabel] = useState("vegan")
     
-    const YOUR_APP_ID = `82e453da`;
-    const YOUR_APP_KEY = "3bb5d1a3b992f408b9003effd74c9c22";
 
 
   async function getRecipe(){
-
-    // require('dotenv').config()
-    
-    // // console.log(process.env)
+    const YOUR_APP_ID = `82e453da`;
+    const YOUR_APP_KEY = "3bb5d1a3b992f408b9003effd74c9c22";
+    const url = `https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&health=pork-free&&imageSize=SMALL`;
+    // console.log(process.env)
 
     try {
       // &&health=${healthLabel} form_healthlabels
-      // const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_kEY}&health=pork-free&&imageSize=SMALL`);
-
-      const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}`);
-      const data = await res.json();
-
+      const result = await fetch(url);
+      const data = await result.json();
       Setrecipes(data.hits);
-      console.log(data);
+      console.log(data.hits);
 
     }
+
     catch(err) {
       // catches errors both in fetch and response.json
       alert(err);
@@ -73,22 +70,7 @@ function App() {
 
             <input className="form_submit" type="submit" value="Search" />
 
-            {/* <select className="form_healthlabels">
-              <option onClick={() => sethealthLabel("None")}> None </option>
-              <option onClick={() => sethealthLabel("vegan")}> Vegan </option>
-              <option onClick={() => sethealthLabel("vagetarian")}> Vagetarian </option>
-              <option onClick={() => sethealthLabel("paleo")}> Paleo </option>
-              <option onClick={() => sethealthLabel("dairy-free")}> Dairy-free </option>
-              <option onClick={() => sethealthLabel("gluten-free")}> Gluten-free </option>
-              <option onClick={() => sethealthLabel("wheet-free")}> Wheet-free </option>
-              <option onClick={() => sethealthLabel("wheet-free")}> low-sugar </option>
-              <option onClick={() => sethealthLabel("egg-free")}> Egg-free </option>
-              <option onClick={() => sethealthLabel("peanut-free")}> Peanut-free </option>
-              <option onClick={() => sethealthLabel("fish-free")}> Fish-free </option>
-              <option onClick={() => sethealthLabel("soy-free")}> Soy-free </option>
-              
-
-            </select> */}
+      
 
             
         </form>
@@ -96,22 +78,29 @@ function App() {
       </div> 
 
 
-      <div className="row recipy_main mt-5 mb-5">
+      <div className="recipy_main mt-5 mb-5">
         
-        
+      <div className="row app__recipes">
+        {recipes !== [] &&
+          recipes.map((recipe) => {
+            return <RecipeTile recipe={recipe} />;
+          })}
+      </div>
 
-        {recipes.map((recipe) => { 
-
-        return <RecipeTile recipe={recipe}/>
-
-        })}
 
       </div>
 
+    {/* <div>
+  {recipes.map((recipe) => {
+    return <RecipeTile recipe={recipe} />;
+  })}
+
+</div> */}
+
+      
         
     </div>
   );
 }
 
 export default App;
-
