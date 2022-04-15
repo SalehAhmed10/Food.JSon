@@ -23,9 +23,8 @@ function App() {
 
     try {
       // &&health=${healthLabel} form_healthlabels
-      // const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_kEY}&health=pork-free&&imageSize=SMALL`);
-      
-      const res = await fetch('https://api.edamam.com/search?q=${query}&app_id=36cd51e4&app_key=6614d9fc825a3504f537956cd8b4e64b&health=pork-free&&imageSize=SMALL')
+      const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_kEY}&health=pork-free&&imageSize=SMALL`);
+
       const data = await res.json();
 
       Setrecipes(data.hits);
