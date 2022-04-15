@@ -26,13 +26,12 @@ function App() {
     try {
       // &&health=${healthLabel} form_healthlabels
       // const res = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_kEY}&health=pork-free&&imageSize=SMALL`);
-        const res =await fetch(`https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&health=pork-free&&imageSize=SMALL`)
+
+      const res =await fetch(`https://api.edamam.com/search?q=${query}&app_id=${YOUR_APP_ID}&app_key=${YOUR_APP_KEY}&health=pork-free&&imageSize=SMALL`)
       const data = await res.json();
 
-      // Setrecipes(data.hits);
-      // // console.log(data);
-      setrecipes(result.data.hits);
-      console.log(result.data.hits);
+      Setrecipes(data.hits);
+      // console.log(data);
 
     }
     catch(err) {
